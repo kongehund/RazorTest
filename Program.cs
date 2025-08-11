@@ -6,8 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-// Register the book service as singleton to maintain state
+// Register the services as singleton to maintain state
 builder.Services.AddSingleton<IBookService, BookService>();
+builder.Services.AddSingleton<IGameDeveloperService, GameDeveloperService>();
+builder.Services.AddSingleton<IGameService, GameService>();
+
 
 // Add GraphQL services
 builder.Services

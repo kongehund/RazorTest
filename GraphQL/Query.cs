@@ -14,5 +14,25 @@ public class Query
     {
         return bookService.GetBook(id);
     }
+
+    public IQueryable<GameDeveloper> GetGameDevelopers([Service] IGameDeveloperService gameDeveloperService)
+    {
+        return gameDeveloperService.GetGameDevelopers();
+    }
+
+    public GameDeveloper? GetGameDeveloper(int id, [Service] IGameDeveloperService gameDeveloperService)
+    {
+        return gameDeveloperService.GetGameDeveloper(id);
+    }
+
+    public IQueryable<Game> GetGames([Service] IGameService gameService)
+    {
+        return gameService.GetGames();
+    }
+
+    public Game? GetGame(int id, [Service] IGameService gameService)
+    {
+        return gameService.GetGame(id);
+    }
 }
 
