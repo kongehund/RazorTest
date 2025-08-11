@@ -1,4 +1,4 @@
-\# About
+\#About
 
 
 
@@ -7,22 +7,23 @@ This repository is intended as a solution that shows GraphQL example usage.
 
 
 * The solution setup is ASP.NET + Razor Pages.
-* The GraphQL NuGet package HotChocolate is the main framework used for GraphQL purposes.
+* The NuGet package HotChocolate is used to create a custom GraphQL schema and play with it at runtime.
+* The NuGet package GraphQL.Client gives us a client we can use to access external GraphQL endpoints (independently of the GraphQL schema we set up)
 * An example GraphQL schema is implemented - the example data is about books.
 
 
 
-\# Prerequisites
+\#Prerequisites
 
 
 
-\## .NET
+\##.NET
 
 This project uses .NET 9.
 
 
 
-\## NuGet
+\##NuGet
 
 If dependencies are not automatically installed when cloning the repo, ensure the online NuGet library is available in Visual Studio 
 
@@ -30,23 +31,17 @@ If dependencies are not automatically installed when cloning the repo, ensure th
 
 
 
-then:
+Install from "Project - Manage NuGet Packages..." :
+
+* HotChocolate.AspNetCore
+* HotChocolate.Data
+* GraphQL.Client
 
 
 
-dotnet add package HotChocolate.AspNetCore
+\#Explanations of code
 
-dotnet add package HotChocolate.Data
-
-
-
-or install them from "Project - Manage NuGet Packages..."
-
-
-
-\# Explanations of code
-
-\## GraphQL folder
+\##GraphQL folder
 
 Added manually
 
@@ -56,7 +51,7 @@ Contains query operations available
 
 
 
-\## Models folder
+\##Models folder
 
 Added manually
 
@@ -66,17 +61,17 @@ Contains example data models to be queried.
 
 
 
-\## Services folder
+\##Services folder
 
-The actual functions of the queries defined in /GraphQL/ are extracted into services in this folder, e.g. BookService.cs 
-
-
-
-Dependency injection is thus used to get the query logic.
+In accordance with Dependency Injection principles, this folder contains the relevant services for the program.
 
 
 
-\# Using the program
+E.g. the actual functionality of the queries in /GraphQL/, are defined in BookService.cs 
+
+
+
+\#Using the program
 
 
 

@@ -17,6 +17,12 @@ builder.Services
     .AddFiltering()
     .AddSorting();
 
+// Register the external GraphQL service
+builder.Services.AddScoped<IExternalGraphQLService, ExternalGraphQLService>();
+
+// Register the SWAPI service
+builder.Services.AddScoped<ISwapiService, SwapiService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

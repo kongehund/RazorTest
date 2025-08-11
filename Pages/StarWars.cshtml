@@ -1,0 +1,98 @@
+﻿@page
+@model RazorTest.Pages.StarWarsModel
+@{
+    ViewData["Title"] = "Star Wars Data";
+}
+
+<h1>Star Wars Universe</h1>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Films</h2>
+        <div class="list-group">
+            @foreach (var film in Model.Films)
+            {
+                <a href="?filmId=@film.Id" class="list-group-item list-group-item-action @(Model.FilmId == film.Id ? "active" : "")">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">@film.Title</h5>
+                        <small>Episode @film.EpisodeID</small>
+                    </div>
+                    <p class="mb-1">Director: @film.Director</p>
+                    <small>Released: @film.ReleaseDate</small>
+                </a>
+            }
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Characters</h2>
+        <div class="list-group" style="max-height: 400px; overflow-y: auto;">
+            @foreach (var person in Model.People.Take(20))
+            {
+                <a href="?personId=@person.Id" class="list-group-item list-group-item-action @(Model.PersonId == person.Id ? "active" : "")">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1">@person.Name</h6>
+                        <small>@person.BirthYear</small>
+                    </div>
+                    @if (person.Homeworld != null)
+                    {
+                        <small>From: @person.Homeworld.Name</small>
+                    }
+                </a>
+            }
+        </div>
+    </div>
+</div>
+
+@if (Model.SelectedFilm != null)
+{
+    <div class="mt-4">
+        <h3>@Model.SelectedFilm.Title</h3>
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Episode:</strong> @Model.SelectedFilm.EpisodeID</p>
+                <p><strong>Director:</strong> @Model.SelectedFilm.Director</p>
+                <p><strong>Release Date:</strong> @Model.SelectedFilm.ReleaseDate</p>
+                <h5>Opening Crawl:</h5>
+                <p class="font-italic">@Model.SelectedFilm.OpeningCrawl</p>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.SelectedPerson != null)
+{
+    <div class="mt-4">
+        <h3>@Model.SelectedPerson.Name</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Birth Year:</strong> @Model.SelectedPerson.BirthYear</p>
+                        <p><strong>Gender:</strong> @Model.SelectedPerson.Gender</p>
+                        <p><strong>Height:</strong> @Model.SelectedPerson.Height cm</p>
+                        <p><strong>Mass:</strong> @Model.SelectedPerson.Mass kg</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Eye Color:</strong> @Model.SelectedPerson.EyeColor</p>
+                        <p><strong>Hair Color:</strong> @Model.SelectedPerson.HairColor</p>
+                        <p><strong>Skin Color:</strong> @Model.SelectedPerson.SkinColor</p>
+                        @if (Model.SelectedPerson.Homeworld != null)
+                        {
+                            <p><strong>Homeworld:</strong> @Model.SelectedPerson.Homeworld.Name</p>
+                            <p><strong>Climate:</strong> @Model.SelectedPerson.Homeworld.Climate</p>
+                            <p><strong>Terrain:</strong> @Model.SelectedPerson.Homeworld.Terrain</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
