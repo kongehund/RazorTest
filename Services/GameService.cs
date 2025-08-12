@@ -43,9 +43,9 @@ public class GameService : IGameService
             },
         };
 
-    public Game AddGame(string title, string platform, GameDeveloper dev, DateTime publishedDate)
+    public Game AddGame(string title, string platform, int gameDevId, DateTime publishedDate)
     {
-        var game = new Game { Id = _games.Count, Title = title, Platform = platform, DeveloperId = dev.Id, PublishedDate = publishedDate };
+        var game = new Game { Id = _games.Count, Title = title, Platform = platform, DeveloperId = gameDevId, PublishedDate = publishedDate };
         
         _games.Add(game);
         return game;
@@ -71,14 +71,14 @@ public class GameService : IGameService
         return _games.AsQueryable();
     }
 
-    public Game? UpdateGame(int id, string? title = null, string? platform = null, GameDeveloper? dev = null, DateTime? publishedDate = null)
+    public Game? UpdateGame(int id, string? title = null, string? platform = null, int? gameDevId = null, DateTime? publishedDate = null)
     {
         var game = GetGame(id);
 
         if (game == null) return null;
         if (title != null) game.Title = title;
         if (platform != null) game.Platform = platform;
-        if (dev != null) game.DeveloperId = dev.Id;
+        if (gameDevId != null) game.DeveloperId = gameDevId.Value;
         if (publishedDate != null) game.PublishedDate = publishedDate.Value;
 
         return game;

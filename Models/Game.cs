@@ -14,4 +14,5 @@ public class Game
 
     public GameDeveloper GetDeveloper([Service] IGameDeveloperService devService)
         => devService.GetGameDeveloper(DeveloperId);
+
 }

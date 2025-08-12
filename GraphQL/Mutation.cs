@@ -25,4 +25,37 @@ public class Mutation
     {
         return bookService.DeleteBook(id);
     }
+
+    public Game AddGame(string title, string platform, int gameDevId, DateTime publishedDate, [Service] IGameService gameService)
+    {
+        return gameService.AddGame(title, platform, gameDevId, publishedDate);
+    }
+
+    public Game? UpdateGame(int id, [Service] IGameService gameService, [Service] IGameDeveloperService devService, string? title = null, string? platform = null, int? gameDevId = null, DateTime? publishedDate = null)
+    {
+        if (gameDevId != null && devService.GetGameDeveloper(gameDevId.Value) == null)
+            throw new GraphQLException("Game Developer does not exist");
+
+        return gameService.UpdateGame(id, title, platform, gameDevId, publishedDate);
+    }
+
+    public bool DeleteGame(int id, [Service] IGameService gameService)
+    {
+        return gameService.DeleteGame(id);
+    }
+
+    public GameDeveloper AddGameDeveloper(string name, DateTime founded, [Service] IGameDeveloperService gameDeveloperService)
+    {
+        return gameDeveloperService.AddGameDeveloper(name, founded);
+    }
+
+    public GameDeveloper? UpdateGameDeveloper(int id, [Service] IGameDeveloperService gameDeveloperService, string? name = null, DateTime? founded)
+    {
+        return gameDeveloperService.UpdateGameDeveloper(id, name, founded);
+    }
+
+    public bool DeleteGameDeveloper(int id, [Service] IGameDeveloperService gameDeveloperService)
+    {
+        return gameDeveloperService.DeleteGameDeveloper(id);
+    }
 }
