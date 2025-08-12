@@ -1,4 +1,4 @@
-\# About
+# About
 
 
 
@@ -12,17 +12,17 @@ This repository is intended as a solution that shows GraphQL example usage.
 
 
 
-\# Prerequisites
+# Prerequisites
 
 
 
-\## .NET
+## .NET
 
 This project uses .NET 9.
 
 
 
-\## NuGet
+## NuGet
 
 If dependencies are not automatically installed when cloning the repo, ensure the online NuGet library is available in Visual Studio 
 
@@ -44,9 +44,9 @@ or install them from "Project - Manage NuGet Packages..."
 
 
 
-\# Explanations of code
+# Explanations of code
 
-\## GraphQL folder
+## GraphQL folder
 
 Added manually
 
@@ -56,7 +56,7 @@ Contains query operations available
 
 
 
-\## Models folder
+## Models folder
 
 Added manually
 
@@ -66,7 +66,7 @@ Contains example data models to be queried.
 
 
 
-\## Services folder
+## Services folder
 
 The actual functions of the queries defined in /GraphQL/ are extracted into services in this folder, e.g. BookService.cs 
 
@@ -76,7 +76,7 @@ Dependency injection is thus used to get the query logic.
 
 
 
-\# Using the program
+# Using the program
 
 
 
