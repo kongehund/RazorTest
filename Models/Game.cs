@@ -12,7 +12,7 @@ public class Game
 
     public DateTime PublishedDate { get; set; }
 
-    public GameDeveloper GetDeveloper([Service] IGameDeveloperService devService)
+    public GameDeveloper? GetDeveloper([Service] IGameDeveloperService devService)
         => devService.GetGameDeveloper(DeveloperId);
 
 }

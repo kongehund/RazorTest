@@ -49,7 +49,7 @@ public class Mutation
         return gameDeveloperService.AddGameDeveloper(name, founded);
     }
 
-    public GameDeveloper? UpdateGameDeveloper(int id, [Service] IGameDeveloperService gameDeveloperService, string? name = null, DateTime? founded)
+    public GameDeveloper? UpdateGameDeveloper(int id, [Service] IGameDeveloperService gameDeveloperService, DateTime? founded, string? name = null)
     {
         return gameDeveloperService.UpdateGameDeveloper(id, name, founded);
     }
