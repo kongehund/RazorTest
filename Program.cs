@@ -38,7 +38,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-// Map GraphQL endpoint
+// Map GraphQL endpoint. This is what makes Nitro available with /graphql/
 app.MapGraphQL();
 
 app.Run();
