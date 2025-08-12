@@ -11,8 +11,4 @@ public class Game
     public int DeveloperId { get; set; }
 
     public DateTime PublishedDate { get; set; }
-
-    public GameDeveloper? GetDeveloper([Service] IGameDeveloperService devService)
-        => devService.GetGameDeveloper(DeveloperId);
-
 }
