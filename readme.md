@@ -95,70 +95,46 @@ Examples:
 
 Get all books
 
+```graphql
 query {
-
-&nbsp; books {
-
-&nbsp;   id
-
-&nbsp;   title
-
-&nbsp;   author
-
-&nbsp;   publishedDate
-
-&nbsp; }
-
+  books {
+    id
+    title
+    author
+    publishedDate
+  }
 }
-
-
+``` 
 
 Get a specific book
-
+```graphql
 query {
-
-&nbsp; book(id: 1) {
-
-&nbsp;   id
-
-&nbsp;   title
-
-&nbsp;   author
-
-&nbsp;   publishedDate
-
-&nbsp; }
-
+  book(id: 1) {
+    id
+    title
+    author
+    publishedDate
+  }
 }
-
-
+``` 
 
 Get books with filtering
-
+```graphql
 query {
-
-&nbsp; books(where: { author: { eq: "Harper Lee" } }) {
-
-&nbsp;   id
-
-&nbsp;   title
-
-&nbsp;   author
-
-&nbsp; }
-
+  books(where: { author: { eq: "Harper Lee" } }) {
+    id
+    title
+    author
+    publishedDate
+  }
 }
-
-
-
+``` 
 Delete book
-
+```graphql
 mutation {
-
-&nbsp; deleteBook(id: 2)
-
+  deleteBook(id: 2)
 }
-
+``` 
 
 
 
